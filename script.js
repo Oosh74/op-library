@@ -1,6 +1,7 @@
 const myLib = [];
 
 const formSubmission = document.querySelector('form');
+const bookGrid = document.querySelector('.book-grid');
 
 formSubmission.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -24,7 +25,7 @@ class Book {
   }
 }
 
-function addBookToLib(title, author, page, didUserRead) {
+const addBookToLib = (title, author, page, didUserRead) => {
   const newBook = new Book(
     title,
     author,
@@ -36,4 +37,27 @@ function addBookToLib(title, author, page, didUserRead) {
   myLib.push(newBook);
   console.log('Book Pushed');
   console.log('Book array', myLib);
-}
+
+  displayBook();
+};
+
+const displayBook = () => {
+  const bookCard = document.createElement('div');
+  bookCard.classList.add('book-card');
+
+  const bookTitle = document.createElement('h3');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+  const hasRead = document.createElement('p');
+
+  for (let i = 0; i < myLib.length; i++) {
+    console.log(myLib[i]);
+    bookTitle.textContent = `${myLib[i].title}`;
+    author.textContent = `${myLib[i].author}`;
+    pages.textContent = `${myLib[i].pages}`;
+    hasRead.textContent = `${myLib[i].didUserRead}`;
+  }
+
+  bookCard.append(bookTitle, author, pages, hasRead);
+  bookGrid.append(bookCard);
+};
