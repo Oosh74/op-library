@@ -73,3 +73,9 @@ const displayBook = () => {
   bookGrid.append(bookCard);
   formModal.close();
 };
+
+formModal.addEventListener('click', (event) => {
+  if (event.target === formModal) {
+    formModal.close();
+  }
+});
