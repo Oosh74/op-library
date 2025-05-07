@@ -2,6 +2,17 @@ const myLib = [];
 
 const formSubmission = document.querySelector('form');
 const bookGrid = document.querySelector('.book-grid');
+const formModal = document.querySelector('dialog');
+const addBook = document.querySelector('.add-book');
+const closeForm = document.querySelector('.close-form');
+
+addBook.addEventListener('click', () => {
+  formModal.showModal();
+});
+
+closeForm.addEventListener('click', () => {
+  formModal.close();
+});
 
 formSubmission.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -60,4 +71,5 @@ const displayBook = () => {
 
   bookCard.append(bookTitle, author, pages, hasRead);
   bookGrid.append(bookCard);
+  formModal.close();
 };
