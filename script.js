@@ -61,6 +61,8 @@ const displayBook = (newBook) => {
   const hasRead = document.createElement('p');
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('delete-btn');
+  const readStatusBtn = document.createElement('button');
+  readStatusBtn.classList.add('read-status-btn');
 
   console.log(newBook);
   bookTitle.textContent = `${newBook.title}`;
@@ -69,8 +71,9 @@ const displayBook = (newBook) => {
   hasRead.textContent = `${newBook.didUserRead}`;
   bookCard.dataset.indexNumber = newBook.bookId;
   deleteBtn.textContent = 'Remove Book';
+  readStatusBtn.textContent = 'Change Read Status';
 
-  bookCard.append(bookTitle, author, pages, hasRead, deleteBtn);
+  bookCard.append(bookTitle, author, pages, hasRead, deleteBtn, readStatusBtn);
   bookGrid.append(bookCard);
   console.log(bookCard.dataset.indexNumber);
   formModal.close();
@@ -89,6 +92,10 @@ const removeBookFromArr = (bookIdToRemove) => {
   return myLib;
 };
 
+const updateReadStatusArr = (targetBookId, readStatus) => {
+  console.log(myLib, targetBookId, readStatus);
+};
+
 formModal.addEventListener('click', (event) => {
   if (event.target === formModal) {
     formModal.close();
@@ -100,5 +107,17 @@ document.addEventListener('click', (event) => {
     console.log(event.target.parentElement.dataset.indexNumber);
     event.target.parentElement.remove();
     removeBookFromArr(event.target.parentElement.dataset.indexNumber);
+  } else if (
+    event.target.className === 'read-status-btn' &&
+    event.target.parentElement.children[0o3].textContent === 'Yes'
+  ) {
+    event.target.parentElement.children[0o3].textContent = 'No';
+    updateReadStatusArr();
+  } else if (
+    event.target.className === 'read-status-btn' &&
+    event.target.parentElement.children[0o3].textContent === 'No'
+  ) {
+    event.target.parentElement.children[0o3].textContent = 'Yes';
+    updateReadStatusArr();
   }
 });
