@@ -1,4 +1,4 @@
-const myLib = [];
+let myLib = [];
 
 const formSubmission = document.querySelector('form');
 const bookGrid = document.querySelector('.book-grid');
@@ -49,33 +49,56 @@ const addBookToLib = (title, author, page, didUserRead) => {
   console.log('Book Pushed');
   console.log('Book array', myLib);
 
-  displayBook();
+  displayBook(newBook);
 };
 
-const displayBook = () => {
+const displayBook = (newBook) => {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book-card');
-
   const bookTitle = document.createElement('h3');
   const author = document.createElement('p');
   const pages = document.createElement('p');
   const hasRead = document.createElement('p');
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('delete-btn');
 
-  for (let i = 0; i < myLib.length; i++) {
-    console.log(myLib[i]);
-    bookTitle.textContent = `${myLib[i].title}`;
-    author.textContent = `${myLib[i].author}`;
-    pages.textContent = `${myLib[i].pages}`;
-    hasRead.textContent = `${myLib[i].didUserRead}`;
-  }
+  console.log(newBook);
+  bookTitle.textContent = `${newBook.title}`;
+  author.textContent = `${newBook.author}`;
+  pages.textContent = `${newBook.pages}`;
+  hasRead.textContent = `${newBook.didUserRead}`;
+  bookCard.dataset.indexNumber = newBook.bookId;
+  deleteBtn.textContent = 'Remove Book';
 
-  bookCard.append(bookTitle, author, pages, hasRead);
+  bookCard.append(bookTitle, author, pages, hasRead, deleteBtn);
   bookGrid.append(bookCard);
+  console.log(bookCard.dataset.indexNumber);
   formModal.close();
+};
+
+const removeBookFromArr = (bookIdToRemove) => {
+  let filteredLib = myLib.filter((book) => {
+    console.log('book', book);
+    console.log('book to remove', bookIdToRemove);
+    console.log(book.bookId !== bookIdToRemove);
+    return book.bookId !== bookIdToRemove;
+  });
+  myLib = filteredLib;
+
+  console.log(filteredLib);
+  return myLib;
 };
 
 formModal.addEventListener('click', (event) => {
   if (event.target === formModal) {
     formModal.close();
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.className === 'delete-btn') {
+    console.log(event.target.parentElement.dataset.indexNumber);
+    event.target.parentElement.remove();
+    removeBookFromArr(event.target.parentElement.dataset.indexNumber);
   }
 });
