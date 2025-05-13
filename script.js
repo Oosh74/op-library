@@ -23,7 +23,6 @@ formSubmission.addEventListener('submit', (event) => {
     event.target.pages.value,
     event.target.readBook.value
   );
-  console.log('Book Data Sent');
 });
 
 class Book {
@@ -47,10 +46,8 @@ const addBookToLib = (title, author, page, didUserRead) => {
     didUserRead,
     crypto.randomUUID()
   );
-  console.log('New Book Created');
+
   myLib.push(newBook);
-  console.log('Book Pushed');
-  console.log('Book array', myLib);
 
   displayBook(newBook);
 };
@@ -67,7 +64,6 @@ const displayBook = (newBook) => {
   const readStatusBtn = document.createElement('button');
   readStatusBtn.classList.add('read-status-btn');
 
-  console.log(newBook);
   bookTitle.textContent = `${newBook.title}`;
   author.textContent = `${newBook.author}`;
   pages.textContent = `${newBook.pages}`;
@@ -78,30 +74,23 @@ const displayBook = (newBook) => {
 
   bookCard.append(bookTitle, author, pages, hasRead, deleteBtn, readStatusBtn);
   bookGrid.append(bookCard);
-  console.log(bookCard.dataset.indexNumber);
+
   formModal.close();
 };
 
 const removeBookFromArr = (bookIdToRemove) => {
   let filteredLib = myLib.filter((book) => {
-    console.log('book', book);
-    console.log('book to remove', bookIdToRemove);
-    console.log(book.bookId !== bookIdToRemove);
     return book.bookId !== bookIdToRemove;
   });
   myLib = filteredLib;
 
-  console.log(filteredLib);
   return myLib;
 };
 
 const updateReadStatusArr = (targetBookId, readStatus) => {
-  console.log(myLib, targetBookId, readStatus);
   for (let i = 0; i < myLib.length; i++) {
     if (myLib[i].bookId === targetBookId) {
-      console.log('pre-update', myLib[i].didUserRead);
       myLib[i].updateReadStatus(readStatus);
-      console.log('post-update', myLib[i].didUserRead);
       return;
     }
   }
@@ -115,7 +104,6 @@ formModal.addEventListener('click', (event) => {
 
 document.addEventListener('click', (event) => {
   if (event.target.className === 'delete-btn') {
-    console.log(event.target.parentElement.dataset.indexNumber);
     event.target.parentElement.remove();
     removeBookFromArr(event.target.parentElement.dataset.indexNumber);
   } else if (
