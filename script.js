@@ -34,6 +34,9 @@ class Book {
       (this.didUserRead = didUserRead),
       (this.bookId = bookId);
   }
+  updateReadStatus(readStatus) {
+    return (this.didUserRead = readStatus);
+  }
 }
 
 const addBookToLib = (title, author, page, didUserRead) => {
@@ -94,6 +97,14 @@ const removeBookFromArr = (bookIdToRemove) => {
 
 const updateReadStatusArr = (targetBookId, readStatus) => {
   console.log(myLib, targetBookId, readStatus);
+  for (let i = 0; i < myLib.length; i++) {
+    if (myLib[i].bookId === targetBookId) {
+      console.log('pre-update', myLib[i].didUserRead);
+      myLib[i].updateReadStatus(readStatus);
+      console.log('post-update', myLib[i].didUserRead);
+      return;
+    }
+  }
 };
 
 formModal.addEventListener('click', (event) => {
@@ -112,12 +123,18 @@ document.addEventListener('click', (event) => {
     event.target.parentElement.children[0o3].textContent === 'Yes'
   ) {
     event.target.parentElement.children[0o3].textContent = 'No';
-    updateReadStatusArr();
+    updateReadStatusArr(
+      event.target.parentElement.dataset.indexNumber,
+      event.target.parentElement.children[0o3].textContent
+    );
   } else if (
     event.target.className === 'read-status-btn' &&
     event.target.parentElement.children[0o3].textContent === 'No'
   ) {
     event.target.parentElement.children[0o3].textContent = 'Yes';
-    updateReadStatusArr();
+    updateReadStatusArr(
+      event.target.parentElement.dataset.indexNumber,
+      event.target.parentElement.children[0o3].textContent
+    );
   }
 });
