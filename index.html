@@ -27,10 +27,17 @@
         <div>
           <button class="add-book">Add Book</button>
         </div>
-        <dialog class="form-modal">
-          <div class="modal-container">
-            <button class="close-form">Close</button>
-            <form>
+      </section>
+      <section class="book-grid"></section>
+    </div>
+    <dialog class="form-modal">
+      <div class="modal-container">
+        <div>
+          <button class="close-form">Close</button>
+        </div>
+        <div>
+          <form>
+            <div class="form-input-wrapper">
               <label for="title">Title</label>
               <input
                 type="text"
@@ -38,6 +45,8 @@
                 name="title"
                 placeholder="The Blade Itself"
               />
+            </div>
+            <div class="form-input-wrapper">
               <label for="author">Author</label>
               <input
                 type="text"
@@ -45,19 +54,24 @@
                 name="author"
                 placeholder="Joe Abercrombie"
               />
+            </div>
+            <div class="form-input-wrapper">
               <label for="pages">Pages</label>
               <input type="number" id="pages" name="pages" placeholder="560" />
+            </div>
+            <div class="form-input-wrapper">
               <label for="readBook">Have you read this book?</label>
               <select id="readBook" name="readBook">
                 <option>Yes</option>
                 <option>No</option>
               </select>
+            </div>
+            <div class="form-input-wrapper">
               <button type="submit">Submit Book</button>
-            </form>
-          </div>
-        </dialog>
-      </section>
-      <section class="book-grid"></section>
-    </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
