@@ -67,7 +67,7 @@ const displayBook = (newBook) => {
   bookTitle.textContent = `Title: ${newBook.title}`;
   author.textContent = `Author: ${newBook.author}`;
   pages.textContent = `Pages: ${newBook.pages}`;
-  hasRead.textContent = `Read Status: ${newBook.didUserRead}`;
+  hasRead.textContent = `${newBook.didUserRead}`;
   bookCard.dataset.indexNumber = newBook.bookId;
   deleteBtn.textContent = 'Remove Book';
   readStatusBtn.textContent = 'Change Read Status';
