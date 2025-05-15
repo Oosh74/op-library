@@ -64,10 +64,10 @@ const displayBook = (newBook) => {
   const readStatusBtn = document.createElement('button');
   readStatusBtn.classList.add('read-status-btn');
 
-  bookTitle.textContent = `${newBook.title}`;
-  author.textContent = `${newBook.author}`;
-  pages.textContent = `${newBook.pages}`;
-  hasRead.textContent = `${newBook.didUserRead}`;
+  bookTitle.textContent = `Title: ${newBook.title}`;
+  author.textContent = `Author: ${newBook.author}`;
+  pages.textContent = `Pages: ${newBook.pages}`;
+  hasRead.textContent = `Read Status: ${newBook.didUserRead}`;
   bookCard.dataset.indexNumber = newBook.bookId;
   deleteBtn.textContent = 'Remove Book';
   readStatusBtn.textContent = 'Change Read Status';
