@@ -212,7 +212,9 @@ button {
 }
 
 .add-book:hover,
-.add-book:focus {
+.add-book:focus,
+button:hover,
+button:focus {
   background-color: #f3eadc;
   border: none;
 }
@@ -280,11 +282,21 @@ dialog {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
 }
 
-.book-card button:first-of-type {
+.book-card button:nth-of-type(2) {
   background-color: orange;
-  margin-top: auto;
+  /* margin-top: auto; */
+  &:hover {
+    background-color: #f9be25;
+  }
+}
+
+.book-card button {
+  padding: 8px;
+  flex: 0 1 auto;
 }
 
 .book-card p:first-of-type {

@@ -72,7 +72,7 @@ const displayBook = (newBook) => {
   deleteBtn.textContent = 'Remove Book';
   readStatusBtn.textContent = 'Change Read Status';
 
-  bookCard.append(bookTitle, author, pages, hasRead, deleteBtn, readStatusBtn);
+  bookCard.append(bookTitle, author, pages, hasRead, readStatusBtn, deleteBtn);
   bookGrid.append(bookCard);
 
   formModal.close();
