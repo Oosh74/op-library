@@ -157,6 +157,11 @@ p {
   gap: 24px;
 }
 
+.nav-wrapper div:first-child {
+  display: flex;
+  gap: 16px;
+}
+
 header {
   background-color: white;
   grid-column: 2 / -1;
@@ -190,7 +195,8 @@ header {
   min-height: 75vh;
 }
 
-.add-book {
+.add-book,
+button {
   appearance: none;
   border: none;
   margin: 0;
@@ -232,6 +238,23 @@ dialog {
   flex-direction: column;
   gap: 16px;
   flex: 1;
+}
+
+.modal-container div:first-child:has(button) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-container div:first-child button {
+  all: unset;
+  padding: 4px;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+  background-color: none;
+}
+
+.modal-container div:first-child button:hover {
+  transform: scale(1.25, 1.25);
 }
 
 .form-input-wrapper {
