@@ -177,13 +177,11 @@ header {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-right: 32px;
 }
 
 .side-bar div {
   display: flex;
-  flex: 1;
-  flex-basis: 100%;
+  flex: 1 1 auto;
 }
 
 .book-grid {
@@ -283,12 +281,10 @@ dialog {
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-  flex: 0 0 auto;
 }
 
 .book-card button:nth-of-type(2) {
   background-color: orange;
-  /* margin-top: auto; */
   &:hover {
     background-color: #f9be25;
   }
