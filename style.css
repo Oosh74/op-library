@@ -305,6 +305,28 @@ dialog {
   border-radius: 0px 0px 24px 24px;
 }
 
+input,
+select {
+  border-radius: 50px;
+  padding: 8px;
+  border: 2px solid #f3eadc;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  background-color: white;
+}
+
+input:focus,
+input:active,
+input:focus-visible,
+select:focus,
+select:active,
+select:focus-visible {
+  background-color: #073937;
+  border-color: #073937;
+  color: #fffbf2;
+  outline: none;
+}
+
 @media (max-width: 750px) {
   .main-wrapper {
     grid-template-columns: 1fr;
