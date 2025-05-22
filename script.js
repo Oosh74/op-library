@@ -23,6 +23,8 @@ formSubmission.addEventListener('submit', (event) => {
     event.target.pages.value,
     event.target.readBook.value
   );
+
+  formSubmission.reset();
 });
 
 class Book {
@@ -108,18 +110,18 @@ document.addEventListener('click', (event) => {
     removeBookFromArr(event.target.parentElement.dataset.indexNumber);
   } else if (
     event.target.className === 'read-status-btn' &&
-    event.target.parentElement.children[0o3].textContent === 'Yes'
+    event.target.parentElement.children[0o3].textContent === 'Read'
   ) {
-    event.target.parentElement.children[0o3].textContent = 'No';
+    event.target.parentElement.children[0o3].textContent = 'Not Read';
     updateReadStatusArr(
       event.target.parentElement.dataset.indexNumber,
       event.target.parentElement.children[0o3].textContent
     );
   } else if (
     event.target.className === 'read-status-btn' &&
-    event.target.parentElement.children[0o3].textContent === 'No'
+    event.target.parentElement.children[0o3].textContent === 'Not Read'
   ) {
-    event.target.parentElement.children[0o3].textContent = 'Yes';
+    event.target.parentElement.children[0o3].textContent = 'Read';
     updateReadStatusArr(
       event.target.parentElement.dataset.indexNumber,
       event.target.parentElement.children[0o3].textContent

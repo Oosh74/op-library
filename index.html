@@ -48,32 +48,55 @@
         <div>
           <form>
             <div class="form-input-wrapper">
-              <label for="title">Title</label>
+              <label for="title"
+                >Title<span aria-label="required">*</span></label
+              >
               <input
                 type="text"
                 id="title"
                 name="title"
                 placeholder="The Blade Itself"
+                required
+                minlength="1"
+                maxlength="50"
               />
             </div>
             <div class="form-input-wrapper">
-              <label for="author">Author</label>
+              <label for="author"
+                >Author<span aria-label="required">*</span></label
+              >
               <input
                 type="text"
                 id="author"
                 name="author"
                 placeholder="Joe Abercrombie"
+                minlength="1"
+                maxlength="50"
+                required
               />
             </div>
             <div class="form-input-wrapper">
-              <label for="pages">Pages</label>
-              <input type="number" id="pages" name="pages" placeholder="560" />
+              <label for="pages"
+                >Pages<span aria-label="required">*</span></label
+              >
+              <input
+                type="number"
+                id="pages"
+                name="pages"
+                placeholder="560"
+                required
+                min="1"
+              />
             </div>
             <div class="form-input-wrapper">
-              <label for="readBook">Have you read this book?</label>
-              <select id="readBook" name="readBook">
-                <option>Yes</option>
-                <option>No</option>
+              <label for="readBook"
+                >Have you read this book?<span aria-label="required"
+                  >*</span
+                ></label
+              >
+              <select id="readBook" name="readBook" required>
+                <option>Read</option>
+                <option>Not Read</option>
               </select>
             </div>
             <div class="form-input-wrapper">

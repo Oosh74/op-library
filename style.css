@@ -335,6 +335,12 @@ select:focus-visible {
   outline: none;
 }
 
+input:valid {
+  border: 2px solid #073937;
+  background-color: #073937;
+  color: #fffbf2;
+}
+
 @media (max-width: 750px) {
   .main-wrapper {
     grid-template-columns: 1fr;
