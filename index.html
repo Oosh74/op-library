@@ -17,23 +17,15 @@
               alt="Book Icon"
               width="75px"
               height="auto"
+              alt="Close form"
             />
             <h1>Book List</h1>
-          </div>
-          <div>
-            <nav>
-              <ul>
-                <li>List Item</li>
-                <li>List Item</li>
-                <li>List Item</li>
-              </ul>
-            </nav>
           </div>
         </div>
       </header>
       <section class="side-bar">
         <div>
-          <button class="add-book">Add Book</button>
+          <button type="button" class="add-book">Add Book</button>
         </div>
       </section>
       <section class="books-section">
@@ -43,10 +35,15 @@
     <dialog class="form-modal">
       <div class="modal-container">
         <div>
-          <button class="close-form"><img src="./assets/imgs/x.svg" /></button>
+          <button type="button" class="close-form">
+            <img src="./assets/imgs/x.svg" />
+          </button>
         </div>
         <div>
           <form>
+            <p>
+              <span aria-label="required">*</span> indicates a required field.
+            </p>
             <div class="form-input-wrapper">
               <label for="title"
                 >Title<span aria-label="required">*</span></label
